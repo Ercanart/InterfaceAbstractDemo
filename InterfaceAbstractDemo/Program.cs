@@ -143,7 +143,7 @@ namespace InterfaceAbstractDemo
 //    public bool CheckIfRealPerson(Customer customer)
 //    {
 //        //MernisServiceReference.KPSPublicSoapClient client = new KPSPublicSoapClient();
-//        return true;
+//        
 //    }
 //}
 
