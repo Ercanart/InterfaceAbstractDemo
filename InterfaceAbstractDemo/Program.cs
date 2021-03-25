@@ -105,3 +105,55 @@ namespace InterfaceAbstractDemo
 //Concrete klasörü içinde CustomerCheckManager classı oluşturduk.42'burdan tekrar izle.
 //https://www.youtube.com/watch?v=2EkMrrX9sYY&t=17333s
 
+//Dependency Injection (Bağımlılık Enjeksiyonu)
+//Dependency Injection, S.O.L.I.D prensiplerinin 5. ayağını oluşturan
+//“Dependency Inversion” prensibinin uygulanmasını içeren bir patterndir.
+//Dependency Injection temel olarak;
+//bağımlılıkların kontrolü ve yönetimi için kullanılmaktadır.
+
+//Adım 12
+//CustomerCheckManager e ICustomerCheckService yi inherit ettik.İnterface olduğu
+//için içindeki metodu implemente ettik.
+//CustomerCheckManager e bu yapıya dönüştürdük.
+
+//public bool CheckIfRealPerson(Customer customer)
+//{
+//return true;
+//}
+
+//Adım 13
+//Starbucks ın mernis doğrulamasına ihtiyacı olduğu için;
+//Save metodunun içine if - else komutu yazdık.
+
+//Adım 14
+//Browser'KPSPublic yazıp aratıyoruz.Çıkan sayfada
+//https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx
+//linkini asmx den itibaren kopyalıyoruz.
+//InterfaceAbstractDemo da add i seçip, service referance ye geliyoruz.
+//Gelen ekranda address bölümüne linkşi yapıştırıyoruz.Go diyip, yeni isim veriyoruz.
+//MernisServiceReferance ismini verdik.
+
+//Adım 15
+//CustomerCheckManager içinde doğrudan aşağıda ki new lemeyi kullanmıyoruz.
+//Çünkü bizi Mernis e bağımlı yapıyor.Bu yapı bu şekilde kullanılırsa;
+//Örneğin; Mernis çalışmazsa sistem de çalışmaz.
+
+//public class CustomerCheckManager : ICustomerCheckService
+//{
+//    public bool CheckIfRealPerson(Customer customer)
+//    {
+//        //MernisServiceReference.KPSPublicSoapClient client = new KPSPublicSoapClient();
+//        return true;
+//    }
+//}
+
+//Adım 16
+//Burada Adapter adlı yeni bir klasör oluşturduk.
+//İçinde de MernisServiceAdapter classı oluşturduk.(Public'i unutma)
+//MernisServiceAdapter e ICustomerCheckService yi implemente ettik.
+//İçindeki metoda da Mernis bilgilerini gönderdik.
+
+//Adım 17
+//CustomerCheckManager "return true;" ekledik.
+//Bu aşamadan sonra test yapılabilir.
+
